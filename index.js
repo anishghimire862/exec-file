@@ -4,7 +4,7 @@ const port = 3000
 
 app.get('/', (req, res) => res.send('Hello World!'))
 
-app.get('/welcome', function(req, res) {
+app.get('/execute', function(req, res) {
 	let myCommandLineArguments = process.argv.slice(2).toString();
 	const { exec } = require('child_process');
 	exec(myCommandLineArguments, (err, stdout, stderr) => {
@@ -13,9 +13,9 @@ app.get('/welcome', function(req, res) {
   	} else {
    		console.log(`stdout: ${stdout}`);
    		console.log(`stderr: ${stderr}`);
+			res.send(`File path: ${myCommandLineArguments} Output: ${stdout} Error: ${stderr}`)
   	}
 	});
-	res.send(myCommandLineArguments);
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
