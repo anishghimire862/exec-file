@@ -2,9 +2,8 @@ const express = require('express')
 const app = express()
 const port = 3000
 
-app.get('/', (req, res) => res.send('Hello World!'))
 
-app.get('/execute', function(req, res) {
+app.post('/execute', function(req, res) {
 	let myCommandLineArguments = process.argv.slice(2).toString();
 	const { exec } = require('child_process');
 	exec(myCommandLineArguments, (err, stdout, stderr) => {
