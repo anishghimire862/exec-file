@@ -12,7 +12,7 @@ app.post('/execute', function(req, res) {
   	} else {
    		console.log(`stdout: ${stdout}`);
    		console.log(`stderr: ${stderr}`);
-			res.send(`File path: ${myCommandLineArguments} Output: ${stdout} Error: ${stderr}`)
+			res.send(`File path: ${myCommandLineArguments} Output: ${stdout} Error: ${stderr} Status: Success`)
   	}
 	});
 });
